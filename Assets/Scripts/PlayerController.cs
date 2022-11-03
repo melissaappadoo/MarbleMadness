@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public int id;
 
     public bool isInitialised;
+    public bool keyCollected = false;
 
     // movement
     public float maxSpeed, acceleration;

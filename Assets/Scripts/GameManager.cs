@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
 
     public int pointsPerUnitTravelled = 10;
 
+    public Animator transition;
+    public float transitionTime = 1f;
+
     void Awake()
     {
         if (Instance == null)
@@ -121,9 +124,13 @@ public class GameManager : MonoBehaviour
 
     IEnumerator loadLevel(int currentLevel)
     {
+
         AsyncOperation currentLevelLoading = SceneManager.LoadSceneAsync("Level " + currentLevel, LoadSceneMode.Additive);
 
+        transition.SetTrigger("Start");
+
         gameState = GameState.ENTERINGSCENE;
+        Cursor.lockState = CursorLockMode.Locked;
 
         while (!currentLevelLoading.isDone)
         {

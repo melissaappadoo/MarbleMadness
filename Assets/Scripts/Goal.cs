@@ -7,9 +7,12 @@ public class Goal : MonoBehaviour
     public int levelCompleteBonus;
     DecalProjector decalProjector;
 
+    public Animator transition;
+
     void Awake()
     {
         decalProjector = GetComponent<DecalProjector>();
+        //GameManager.Instance.transition = transition;
     }
 
     void OnTriggerEnter(Collider other)
